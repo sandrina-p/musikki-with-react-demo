@@ -106,6 +106,10 @@
 
 //TODO move to helpers
 .stateEmpty {
-    padding: $safeArea*4 $safeArea;
+    padding: $safeArea;
     text-align: center;
+
+    @include media(phablet) {
+        padding: $safeArea*4 $safeArea;
+    }
 }

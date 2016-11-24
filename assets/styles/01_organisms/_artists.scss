@@ -5,13 +5,19 @@
 }
 
 .Artist {
+    position: relative;
     @include setBorder(all);
     margin-bottom: $safeArea;
     background: $clrWhite;
     transition: transform $speed, box-shadow $speed;
-    @extend %flexbox;
+    @include flexbox(true);
     justify-content: space-between;
     align-items: center;
+    line-height: $lineHeightS;
+
+    * {
+        line-height: inherit;
+    }
 
     &:hover {
         box-shadow: $borderW $borderW 0px black;
@@ -30,12 +36,13 @@
     }
 
     &-info {
-        padding: 0 $safeArea;
+        padding: $safeArea/5 $safeArea/5 $safeArea/5 $safeArea;
         width: 100%;
     }
 
     &-name {
-        font-size: $fontLx;
+        font-size: $fontL;
+
     }
 
     &-dates {
@@ -55,7 +62,13 @@
     }
 
     &-actions {
-        padding-right: $safeArea;
+        min-width: $safeArea*2;
         transition: opacity $speed;
+    }
+
+    @include media(phablet) {
+
+        padding-right: $safeArea*2;
+
     }
 }

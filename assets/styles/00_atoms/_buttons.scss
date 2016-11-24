@@ -87,11 +87,16 @@ button {
 
 .BtnAct {
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: $safeArea*1.5;
+    height: $safeArea*1.5;
     transition: background $speed;
-    padding: $safeArea/3;
+
     opacity: 0;
+
+
+    .touchevents & {
+        opacity: 0.5;
+    }
 
     .Artist:hover & {
             opacity: 0.5;
@@ -117,6 +122,21 @@ button {
             fill: white;
         }
     }
+
+    &-check {
+        width: $safeArea;
+    }
+
+    @include media(phablet) {
+        width: 40px;
+        height: 40px;
+        padding: $safeArea/3;
+
+        &-check {
+            width: $safeArea*2;
+        }
+
+    };
 }
 
 

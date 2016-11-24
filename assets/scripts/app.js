@@ -5,7 +5,6 @@
 
 // =include components/_utils.js
 
-
 class InitialPage extends React.Component {
 
     constructor() {

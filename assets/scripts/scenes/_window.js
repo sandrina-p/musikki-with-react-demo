@@ -1,16 +1,21 @@
- class Window extends React.Component {
+class Window extends React.Component {
 
-     constructor() {
-         super();
+    constructor() {
+        super();
 
-         this.state = {
+        this.state = {
             linksFooter: [
                 ['https://github.com/sandrina-p', 'sandrina-p'],
                 ['https://github.com/sandrina-p/musikki-with-react-demo', 'github'],
                 ['https://musikki.com', 'Powered by Musikki']
-            ]
-         };
-     }
+            ],
+            windowClasses: 'Window '+this._MTouchEvents()
+        };
+    }
+
+    _MTouchEvents() {
+        return Modernizr.touchevents ? 'touchevents' : 'no-touchevents';
+    }
 
     render() {
         //get window title NOTE: I fell this is not the best approach but it works x)
@@ -22,7 +27,7 @@
         let linksUl = <ul className="Window-footer-ul">{linksLi}</ul>
 
         return (
-            <div className="Window">
+            <div className={this.state.windowClasses}>
                 <header className="Window-header">
                     <h1>{viewTitle}</h1>
                 </header>

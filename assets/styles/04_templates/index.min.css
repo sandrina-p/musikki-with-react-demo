@@ -60,16 +60,14 @@
 }
 
 .Window .Window-header,
-.Window .Window-footer-ul,
-.Artist {
+.Window .Window-footer-ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
 .Window .Window-header > *,
-.Window .Window-footer-ul > *,
-.Artist > * {
+.Window .Window-footer-ul > * {
   -webkit-box-flex: 0;
   -ms-flex-positive: 0;
   flex-grow: 0;
@@ -486,12 +484,15 @@ button:focus {
 
 .BtnAct {
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 1.5rem;
+  height: 1.5rem;
   -webkit-transition: background 250ms;
   transition: background 250ms;
-  padding: 0.33333rem;
   opacity: 0;
+}
+
+.touchevents .BtnAct {
+  opacity: 0.5;
 }
 
 .Artist:hover .BtnAct {
@@ -517,6 +518,22 @@ button:focus {
 
 .BtnAct[data-fav="true"] * {
   fill: white;
+}
+
+.BtnAct-check {
+  width: 1rem;
+}
+
+@media (min-width: 34.375em) {
+  .BtnAct {
+    width: 40px;
+    height: 40px;
+    padding: 0.33333rem;
+  }
+
+  .BtnAct-check {
+    width: 2rem;
+  }
 }
 
 .Link {
@@ -643,17 +660,17 @@ button:focus {
 }
 
 .InputSide:nth-of-type(1) input {
-  border-top-left-radius: 16px;
+  border-top-left-radius: 8px;
   border-top-right-radius: 15px;
-  border-bottom-right-radius: 14px;
-  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 17px;
 }
 
 .InputSide:nth-of-type(2) input {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 7px;
-  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 6px;
 }
 
 .InputSearch {
@@ -814,8 +831,14 @@ button:focus {
 }
 
 .stateEmpty {
-  padding: 4rem 1rem;
+  padding: 1rem;
   text-align: center;
+}
+
+@media (min-width: 34.375em) {
+  .stateEmpty {
+    padding: 4rem 1rem;
+  }
 }
 
 .Nav {
@@ -866,18 +889,55 @@ button:focus {
 }
 
 .Artist {
+  position: relative;
   margin-bottom: 1rem;
   background: #ffffff;
   -webkit-transition: box-shadow 250ms, -webkit-transform 250ms;
   transition: box-shadow 250ms, -webkit-transform 250ms;
   transition: transform 250ms, box-shadow 250ms;
   transition: transform 250ms, box-shadow 250ms, -webkit-transform 250ms;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  line-height: 1.2;
+}
+
+.Artist > * {
+  -webkit-box-flex: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+}
+
+.no-flexbox .Artist {
+  *zoom: 1;
+}
+
+.no-flexbox .Artist:before,
+.no-flexbox .Artist:after {
+  content: "";
+  display: table;
+}
+
+.no-flexbox .Artist:after {
+  clear: both;
+}
+
+.no-flexbox .Artist > * {
+  float: left;
+}
+
+.Artist * {
+  line-height: inherit;
 }
 
 .Artist:hover {
@@ -898,12 +958,12 @@ button:focus {
 }
 
 .Artist-info {
-  padding: 0 1rem;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
   width: 100%;
 }
 
 .Artist-name {
-  font-size: 1.625rem;
+  font-size: 1.125rem;
 }
 
 .Artist-dates {
@@ -923,7 +983,13 @@ button:focus {
 }
 
 .Artist-actions {
-  padding-right: 1rem;
+  min-width: 2rem;
   -webkit-transition: opacity 250ms;
   transition: opacity 250ms;
+}
+
+@media (min-width: 34.375em) {
+  .Artist {
+    padding-right: 2rem;
+  }
 }

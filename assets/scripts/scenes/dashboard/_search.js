@@ -18,6 +18,11 @@ class Search extends React.Component {
 
         if (value.length > 0) {
 
+            //while waiting for request...
+            let loading = <div className="stateEmpty">L◉_◉king... </div>;
+            this.setState({artistsFound: loading });
+
+
             Ajx.getJSON('GET', `https://music-api.musikki.com/v1/artists?q=[artist-name:${value}]&appkey=123456789&appid=123456789&limit=6`)
                 .then((response) => {
                     // console.log(response);
@@ -31,40 +36,47 @@ class Search extends React.Component {
                         }
                         artistsFoundLoad.push(artist);
                     }
-                    this.setState({artistsFound: artistsFoundLoad });
+                    this.setState({artistsFound: artistsFoundLoad});
                 })
                 .catch(function (response) {
                     console.error('Augh, there was an error!', response);
                 });
 
         } else {
-            this.setState({artistsFound: null });
+            this.setState({artistsFound: null});
         }
 
     }
 
     _getArtists() {
         let artists = this.state.artistsFound
-        if (artists != null) {
-            if (artists.length > 0) {
 
-                return (
-                    artists.map((artist) => {
-                        return (
-                            <Artist
-                                key={artist.id.toString()}
-                                id={artist.id.toString()}
-                                name={artist.name}
-                                thumb={artist.thumb}
-                                dates={artist.dates}
-                                genres={artist.genres}
-                            />
-                        );
-                    })
-                )
+        if (artists != null) {
+
+            if (artists.constructor === Array) {
+
+                if (artists.length > 0) {
+                    return (
+                        artists.map((artist) => {
+                            return (
+                                <Artist key={artist.id.toString()}
+                                    id={artist.id.toString()}
+                                    name={artist.name}
+                                    thumb={artist.thumb}
+                                    dates={artist.dates}
+                                    genres={artist.genres}
+                                />
+                            );
+                        })
+                    )
+                } else {
+                    return <div className="stateEmpty">Holy, who are they? (ಠ~ಠ)</div>
+                }
+
             } else {
-                return <div className="stateEmpty">Holy, who are they? (ಠ~ಠ)</div>
+                return artists
             }
+
         }
     }
 
