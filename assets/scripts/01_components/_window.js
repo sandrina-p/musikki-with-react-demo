@@ -15,10 +15,13 @@ class Window extends React.Component {
                     {this.props.children}
                 </main>
                 <footer className="Window-footer">
-                    <h6><a href="https://github.com/sandrina-p" className="Link">sandrina-p's first React project</a> . <a href="git" className="Link">github</a> . <i><a href="https://musikki.com" className="Link">Powered by Musikki</a></i> </h6>
+                    <h6>
+                        <a target="_blank" href="https://github.com/sandrina-p" className="Link">sandrina-p's first React project</a>
+                        . <a target="_blank" href="https://github.com/sandrina-p/musikki-with-react-demo" className="Link">github</a>
+                        . <i><a target="_blank" href="https://musikki.com" className="Link">Powered by Musikki</a></i> </h6>
                 </footer>
             </div>
         )
     }
-    
+
 }
