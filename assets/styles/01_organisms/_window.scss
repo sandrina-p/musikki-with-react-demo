@@ -22,10 +22,24 @@
         background: $clrLight;
         text-align: center;
     }
+
+    %flexCenter {
+        @extend %flexbox;
+
+        @include flexboxProp {
+            justify-content: center;
+            align-items: center;
+        }
+
+        @mixin noFlex {
+            padding-top: $safeArea/3;
+        }
+    }
+
     &-header {
         @extend %hf;
+        @extend %flexCenter;
         top: 0;
-        padding: $safeArea/3;
         @include setBorder(bottom);
 
     }
@@ -33,15 +47,26 @@
     &-footer {
         @extend %hf;
         bottom: 0;
-        padding: $safeArea/2;
         @include setBorder(top);
 
-        > * {
+        &-ul {
+            @extend %flexCenter;
             font-size: $fontXS;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: $clrGray;
-            line-height: $lineHeightS;
+
+            height: 100%;
+
+            > li {
+                display: inline;
+                padding-right: $safeArea/3;
+
+                &:not(:first-of-type):before {
+                    content: '.';
+                    margin-right: $safeArea/3;
+                }
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Musikki - demo</title>
@@ -20,12 +21,12 @@
 
     <div id="musikkiEx">
         <span class="BeforeLoad">. . . loading . . .</span>
+        <noscript>
+            <span class="BeforeLoad">Please use a browser with javascript. I need that.</span>
+        </noscript>
     </div>
 
     <!-- SCRIPTS AND STYLES -->
-    <noscript>
-        <link rel="stylesheet" href="assets/styles/04_templates/index.min.css">
-    </noscript>
     <!--[if lt IE 9 || IE9]>
         <link rel="stylesheet" href="assets/styles/04_templates/index.min.css">
     <![endif]-->
@@ -47,8 +48,7 @@
 
     <script src="https://unpkg.com/react-router@3.0.0/umd/ReactRouter.min.js" charset="utf-8"></script>
 
-    <script type="text/babel" src="assets/scripts/03_templates/app.min.js" charset="utf-8"></script>
-
+    <script type="text/babel" src="assets/scripts/app.min.js" charset="utf-8"></script>
 </body>
 
 </html>
