@@ -46,7 +46,7 @@ class Search extends React.Component {
     _getArtists() {
         let artists = this.state.artistsFound
         if (artists != null) {
-            if (artists.length > 1) {
+            if (artists.length > 0) {
 
                 return (
                     artists.map((artist) => {
