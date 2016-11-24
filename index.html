@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Musikki ex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name='description' content='[musikki exercise]'>
+    <meta name='subject' content='musikki exercise'>
+    <meta name='copyright' content='sandrina'>
+    <meta name='language' content='ENG'>
+
+    <link href="https://fonts.googleapis.com/css?family=Share" rel="stylesheet">
+
+    <style>
+        html, body {margin:0; padding:0; background: #f2f2f2; line-height: 1.5;} .BeforeLoad { display: block; position: absolute; top: 50%; width: 100%; text-align: center; font-family: sans-serif; letter-spacing: 1px;}
+    </style>
+</head>
+
+<body>
+
+    <div id="musikkiEx">
+        <span class="BeforeLoad">. . . loading . . .</span>
+    </div>
+
+    <!-- SCRIPTS AND STYLES -->
+    <noscript>
+        <link rel="stylesheet" href="assets/styles/04_templates/index.min.css">
+    </noscript>
+    <!--[if lt IE 9 || IE9]>
+        <link rel="stylesheet" href="assets/styles/04_templates/index.min.css">
+    <![endif]-->
+
+    <script>
+        var cb = function() {
+            var l = document.createElement('link'); l.rel = 'stylesheet';
+            l.href = 'assets/styles/04_templates/index.min.css';
+            document.getElementsByTagName('head')[0].appendChild(l);
+        };
+        var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+        if (raf) raf(cb);
+        else window.addEventListener('load', cb);
+    </script>
+
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+    <script src="https://unpkg.com/react-router@3.0.0/umd/ReactRouter.min.js" charset="utf-8"></script>
+
+    <script type="text/babel" src="assets/scripts/03_templates/app.min.js" charset="utf-8"></script>
+
+</body>
+
+</html>

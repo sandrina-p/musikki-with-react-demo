@@ -1,0 +1,45 @@
+.Nav {
+    width: 100%;
+    padding: $safeArea*2 0 $safeArea;
+    @extend %cf;
+
+
+    @include media(untilTablet) {
+        &-tabs {
+            width: 75%;
+
+            > * {
+                padding: $safeArea/5 $safeArea/2;
+
+                &:nth-last-of-type(n+2),
+                &:nth-last-of-type(n+2) ~ * {
+                    width: 50%;
+                }
+
+                &:nth-last-of-type(n+3),
+                &:nth-last-of-type(n+3) ~ * {
+                    width: 33.33%;
+                }
+            }
+
+        }
+
+        &-actions {
+            float: right;
+            max-width: 25%;
+
+            > * {
+                padding: $safeArea/5 $safeArea/2;
+            }
+        }
+    }
+
+    &-tabs {
+        float: left;
+        @extend %cf;
+    }
+
+    &-actions {
+        float: right;
+    }
+}

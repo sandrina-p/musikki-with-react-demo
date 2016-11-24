@@ -1,0 +1,61 @@
+
+.ArtistsList {
+    width: 100%;
+    padding: $safeArea 0;
+}
+
+.Artist {
+    @include setBorder(all);
+    margin-bottom: $safeArea;
+    background: $clrWhite;
+    transition: transform $speed, box-shadow $speed;
+    @extend %flexbox;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+        box-shadow: $borderW $borderW 0px black;
+        transform: translate(-$borderW, -$borderW);
+    }
+
+    &-cover {
+        $size:72px;
+        position: relative;
+        min-width: $size+$borderW;
+        width: $size+$borderW;
+        height: $size;
+        border-right: $borderW solid;
+        overflow: hidden;
+        background-size: cover;
+    }
+
+    &-info {
+        padding: 0 $safeArea;
+        width: 100%;
+    }
+
+    &-name {
+        font-size: $fontLx;
+    }
+
+    &-dates {
+        padding: 0 $safeArea/2;
+        font-style: italic;
+        font-size: $fontS;
+        color: $clrGray;
+    }
+
+    &-details {
+        font-size: $fontS;
+        color: $clrGray;
+
+        > * {
+            padding-right: $safeArea/2;
+        }
+    }
+
+    &-actions {
+        padding-right: $safeArea;
+        transition: opacity $speed;
+    }
+}

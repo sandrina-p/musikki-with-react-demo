@@ -1,0 +1,140 @@
+.Form {
+    position: relative;
+    width: 300px;
+    max-width: 100%;
+
+    &-footer {
+        padding: $safeArea/2;
+        text-align: center;
+
+        > * {
+            display: block;
+            margin: $safeArea auto;
+        }
+    }
+
+    &-error {
+        position: absolute;
+        margin: 0;
+        bottom: -$safeArea/2;
+        width: 100%;
+        text-align: center;
+        font-style:italic;
+        font-size: $fontS;
+    }
+}
+
+%inputBase {
+    display: block;
+    width: 100%;
+    border: $borderS;
+    background: $clrWhite;
+    padding: $safeArea/2;
+
+    color: $clrBlack;
+    font-family: $font-sans;
+    font-size: $fontM;
+
+    transition: border-radius $speed/2, transform $speed, box-shadow $speed;
+
+    @include placeHolder {
+        color: $clrGray;
+        font-family: $font-sans;
+        font-size: $fontM;
+    };
+
+    &:focus,
+    &:hover {
+        transform: translate(-$borderW, -$borderW);
+        box-shadow: $borderW $borderW 0px black;
+        outline: none;
+    }
+}
+
+.InputSide {
+    position: relative;
+    @extend %cf;
+    padding: $safeArea/2;
+    width: 100%;
+
+    input,
+    label {
+        width: 50%;
+        float: right;
+    }
+
+    input {
+        @extend %inputBase;
+
+        &:focus,
+        &:hover {
+            & + label {
+                transform: translate(-$safeArea/5, -$safeArea/5);
+            }
+        }
+
+        &:focus {
+            & + label {
+                font-style: italic;
+            }
+        }
+    }
+
+    label {
+        text-align: right;
+        padding: $safeArea/1.5 $safeArea;
+        transition: transform $speed;
+    }
+
+    &:nth-of-type(1) {
+        input {
+            @include borderradius();
+        }
+    }
+
+    &:nth-of-type(2) { //so far it's needed only 2 nth so, keep it short
+        input {
+            @include borderradius();
+        }
+    }
+
+
+}
+
+.InputSearch {
+    position: relative;
+    padding: $safeArea 0;
+    width: 100%;
+
+    input {
+        @extend %inputBase;
+        padding-left: $safeArea*3;
+        @include borderradius(33px, 30px, 20px, 15px);
+
+        &:focus,
+        &:hover {
+            & + .InputSearch-svg {
+                transform: translate(-$safeArea/5, -$safeArea/5);
+            }
+        }
+
+        &:focus {
+            & + .InputSearch-svg {
+                transform-origin: center;
+                transform: rotate(90deg) translate(-$safeArea/3, $safeArea/5);
+            }
+        }
+    }
+
+    &-svg {
+        position: absolute;
+        top: $safeArea*2;
+        left: $safeArea;
+        transition: transform $speed;
+
+        path {
+            fill: $clrBlack;
+            border: inherit;
+        }
+    }
+}

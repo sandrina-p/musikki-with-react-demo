@@ -1,0 +1,922 @@
+/*------------------------------------*    ### INDEX.SCSS ###
+
+    >> TABLE OF CONTENTS
+    > a template.scss must import:
+        - any component used (atom, molecule or organism);
+        NOTE: don't @import components on the pages to prevent duplicated imports.
+        > # internal imports
+        > # plugins imports
+\*------------------------------------*/
+
+/*------------------------------------*#IMPORTS
+\*------------------------------------*/
+
+/*------------------------------------*    #VARIABLES
+\*------------------------------------*/
+
+/*------------------------------------*    @mixins / &placeholder / functions
+
+    > @function calculate rem
+    > @media queries
+    > @position centerxy
+    > flexbox vs floats
+    > calc
+    > %retina2x
+    > others
+\*------------------------------------*/
+
+/*------------------------------------*    #MEDIA QUERIES
+\*------------------------------------*/
+
+/*------------------------------------*    #POSITION
+\*------------------------------------*/
+
+/*------------------------------------*    #FLEXBOX & CLEARFIX
+\*------------------------------------*/
+
+.InputSide,
+.Nav,
+.Nav-tabs {
+  *zoom: 1;
+}
+
+.InputSide:before,
+.Nav:before,
+.Nav-tabs:before,
+.InputSide:after,
+.Nav:after,
+.Nav-tabs:after {
+  content: "";
+  display: table;
+}
+
+.InputSide:after,
+.Nav:after,
+.Nav-tabs:after {
+  clear: both;
+}
+
+.InputSide > *,
+.Nav > *,
+.Nav-tabs > * {
+  float: left;
+}
+
+.Artist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Artist > * {
+  -webkit-box-flex: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+}
+
+/*------------------------------------*    #CALC
+\*------------------------------------*/
+
+/*------------------------------------*    #SUPPORT
+\*------------------------------------*/
+
+/*------------------------------------*    #PLACEHOLDER
+\*------------------------------------*/
+
+/*------------------------------------*    #BORDER
+\*------------------------------------*/
+
+.BtnBasic--lg,
+.BtnBasic--md,
+.active.BtnBasic--lg,
+.active.BtnBasic--md,
+.BtnBasic--lg:focus,
+.BtnBasic--md:focus,
+.BtnBasic--lg:hover,
+.BtnBasic--md:hover,
+.Window,
+.Artist {
+  border: 3px solid;
+}
+
+.Window-footer {
+  border-top: 3px solid;
+}
+
+.Window-header {
+  border-bottom: 3px solid;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*CUSTOM*/
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: 80%;
+}
+
+html {
+  line-height: 1.5;
+  font-family: "Share", cursive;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html > * {
+  background: #f2f2f2;
+}
+
+@media (min-width: 62.5em) and (min-height: 25em) {
+  html {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 100em) and (min-height: 25em) {
+  html {
+    font-size: 1.3125rem;
+  }
+}
+
+html * {
+  box-sizing: inherit;
+  line-height: inherit;
+}
+
+@-webkit-keyframes fadein {
+  0% {
+    background: #f2f2f2;
+  }
+
+  80% {
+    background: #f2f2f2;
+  }
+
+  100% {
+    background: #121212;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    background: #f2f2f2;
+  }
+
+  80% {
+    background: #f2f2f2;
+  }
+
+  100% {
+    background: #121212;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+@media screen and (max-device-width: 480px) {
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/*------------------------------------*HELPERS
+\*------------------------------------*/
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+.cf:before,
+.cf :after {
+  content: "";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/*------------------------------------*### TYPOGRAPHY   ###
+\*------------------------------------*/
+
+p,
+.p {
+  font-size: inherit;
+}
+
+a {
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+a:focus {
+  outline: 0;
+}
+
+a:focus,
+button:focus {
+  -webkit-animation-name: flash;
+  animation-name: flash;
+  -webkit-animation-duration: 250ms;
+  animation-duration: 250ms;
+  outline: 0;
+  border: 0;
+  box-shadow: 0;
+}
+
+a:disabled,
+button:disabled {
+  cursor: auto;
+}
+
+a:focus a,
+a:focus .fa,
+a:focus .glyphicon,
+button:focus a,
+button:focus .fa,
+button:focus .glyphicon {
+  -webkit-animation-name: flash;
+  animation-name: flash;
+  -webkit-animation-duration: 250ms;
+  animation-duration: 250ms;
+}
+
+@-webkit-keyframes flash {
+  50% {
+    color: transparent;
+  }
+}
+
+@keyframes flash {
+  50% {
+    color: transparent;
+  }
+}
+
+button {
+  font-family: "Share", cursive;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+}
+
+button:focus {
+  border: none;
+  opacity: 1;
+  -webkit-animation-name: flash;
+  animation-name: flash;
+  -webkit-animation-duration: 250ms;
+  animation-duration: 250ms;
+}
+
+.BtnBasic--lg,
+.BtnBasic--md {
+  display: block;
+  position: relative;
+  background: #ffffff;
+  box-shadow: 3px 3px 0px #000000;
+  -webkit-transition: box-shadow 250ms, -webkit-transform 250ms;
+  transition: box-shadow 250ms, -webkit-transform 250ms;
+  transition: transform 250ms, box-shadow 250ms;
+  transition: transform 250ms, box-shadow 250ms, -webkit-transform 250ms;
+  text-align: center;
+}
+
+.active.BtnBasic--lg,
+.active.BtnBasic--md,
+.BtnBasic--lg:focus,
+.BtnBasic--md:focus,
+.BtnBasic--lg:hover,
+.BtnBasic--md:hover {
+  box-shadow: none;
+  -webkit-transform: translate(3px, 3px);
+  -ms-transform: translate(3px, 3px);
+  transform: translate(3px, 3px);
+  background: #000000;
+  color: #ffffff;
+}
+
+.active.BtnBasic--lg,
+.active.BtnBasic--md {
+  pointer-events: none;
+}
+
+.BtnBasic--lg:not(:first-of-type),
+.BtnBasic--md:not(:first-of-type) {
+  margin-left: -3px;
+}
+
+.BtnBasic--lg {
+  padding: 0.2rem 3rem;
+}
+
+.BtnBasic--md {
+  padding: 0.2rem 1rem;
+}
+
+.BtnAct {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: background 250ms;
+  transition: background 250ms;
+  padding: 0.33333rem;
+  opacity: 0;
+}
+
+.Artist:hover .BtnAct {
+  opacity: 0.5;
+}
+
+.Artist:hover .BtnAct:hover {
+  opacity: 1;
+}
+
+.BtnAct:hover {
+  background: #787878;
+}
+
+.BtnAct:hover * {
+  fill: white;
+}
+
+.BtnAct[data-fav="true"] {
+  background: #000000;
+  opacity: 1;
+}
+
+.BtnAct[data-fav="true"] * {
+  fill: white;
+}
+
+.Link {
+  color: #787878;
+}
+
+.Link:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.Form {
+  position: relative;
+  width: 300px;
+  max-width: 100%;
+}
+
+.Form-footer {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.Form-footer > * {
+  display: block;
+  margin: 1rem auto;
+}
+
+.Form-error {
+  position: absolute;
+  margin: 0;
+  bottom: -0.5rem;
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.875rem;
+}
+
+.InputSide input,
+.InputSearch input {
+  display: block;
+  width: 100%;
+  border: 3px solid;
+  background: #ffffff;
+  padding: 0.5rem;
+  color: #000000;
+  font-family: "Share", cursive;
+  font-size: 1rem;
+  -webkit-transition: border-radius 125ms, box-shadow 250ms, -webkit-transform 250ms;
+  transition: border-radius 125ms, box-shadow 250ms, -webkit-transform 250ms;
+  transition: border-radius 125ms, transform 250ms, box-shadow 250ms;
+  transition: border-radius 125ms, transform 250ms, box-shadow 250ms, -webkit-transform 250ms;
+}
+
+.InputSide input::-webkit-input-placeholder,
+.InputSearch input::-webkit-input-placeholder {
+  color: #787878;
+  font-family: "Share", cursive;
+  font-size: 1rem;
+}
+
+.InputSide input:-moz-placeholder,
+.InputSearch input:-moz-placeholder {
+  color: #787878;
+  font-family: "Share", cursive;
+  font-size: 1rem;
+}
+
+.InputSide input::-moz-placeholder,
+.InputSearch input::-moz-placeholder {
+  color: #787878;
+  font-family: "Share", cursive;
+  font-size: 1rem;
+}
+
+.InputSide input:-ms-input-placeholder,
+.InputSearch input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #787878;
+  font-family: "Share", cursive;
+  font-size: 1rem;
+}
+
+.InputSide input:focus,
+.InputSearch input:focus,
+.InputSide input:hover,
+.InputSearch input:hover {
+  -webkit-transform: translate(-3px, -3px);
+  -ms-transform: translate(-3px, -3px);
+  transform: translate(-3px, -3px);
+  box-shadow: 3px 3px 0px black;
+  outline: none;
+}
+
+.InputSide {
+  position: relative;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.InputSide input,
+.InputSide label {
+  width: 50%;
+  float: right;
+}
+
+.InputSide input:focus + label,
+.InputSide input:hover + label {
+  -webkit-transform: translate(-0.2rem, -0.2rem);
+  -ms-transform: translate(-0.2rem, -0.2rem);
+  transform: translate(-0.2rem, -0.2rem);
+}
+
+.InputSide input:focus + label {
+  font-style: italic;
+}
+
+.InputSide label {
+  text-align: right;
+  padding: 0.66667rem 1rem;
+  -webkit-transition: -webkit-transform 250ms;
+  transition: -webkit-transform 250ms;
+  transition: transform 250ms;
+  transition: transform 250ms, -webkit-transform 250ms;
+}
+
+.InputSide:nth-of-type(1) input {
+  border-top-left-radius: 17px;
+  border-top-right-radius: 9px;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 13px;
+}
+
+.InputSide:nth-of-type(2) input {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 11px;
+  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 13px;
+}
+
+.InputSearch {
+  position: relative;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.InputSearch input {
+  padding-left: 3rem;
+  border-top-left-radius: 33px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 15px;
+}
+
+.InputSearch input:focus + .InputSearch-svg,
+.InputSearch input:hover + .InputSearch-svg {
+  -webkit-transform: translate(-0.2rem, -0.2rem);
+  -ms-transform: translate(-0.2rem, -0.2rem);
+  transform: translate(-0.2rem, -0.2rem);
+}
+
+.InputSearch input:focus + .InputSearch-svg {
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: rotate(90deg) translate(-0.33333rem, 0.2rem);
+  -ms-transform: rotate(90deg) translate(-0.33333rem, 0.2rem);
+  transform: rotate(90deg) translate(-0.33333rem, 0.2rem);
+}
+
+.InputSearch-svg {
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  -webkit-transition: -webkit-transform 250ms;
+  transition: -webkit-transform 250ms;
+  transition: transform 250ms;
+  transition: transform 250ms, -webkit-transform 250ms;
+}
+
+.InputSearch-svg path {
+  fill: #000000;
+  border: inherit;
+}
+
+#musikkiEx {
+  width: 100%;
+  height: 100%;
+}
+
+.Window {
+  position: relative;
+  margin: auto;
+  top: 3%;
+  width: 95%;
+  max-width: 800px;
+  height: 95%;
+  overflow: auto;
+}
+
+.Window .Window-header,
+.Window .Window-footer {
+  position: absolute;
+  width: 100%;
+  height: 2.5rem;
+  left: 0;
+  z-index: 2;
+  background: #f2f2f2;
+  text-align: center;
+}
+
+.Window-header {
+  top: 0;
+  padding: 0.33333rem;
+}
+
+.Window-footer {
+  bottom: 0;
+  padding: 0.5rem;
+}
+
+.Window-footer > * {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #787878;
+  line-height: 1.2;
+}
+
+.Window .Window-main,
+.Window .Window-main--center {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.Window-main {
+  padding: 1rem 0.5rem;
+}
+
+.Window-main--center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.Window-main--center > * {
+  -webkit-box-flex: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+}
+
+@media (min-width: 28.125em) {
+  .Window-main {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 34.375em) {
+  .Window {
+    top: 5%;
+    height: 90%;
+  }
+
+  .Window-main {
+    padding: 3rem;
+  }
+}
+
+.stateEmpty {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.Nav {
+  width: 100%;
+  padding: 2rem 0 1rem;
+}
+
+@media (max-width: 46.8125em) {
+  .Nav-tabs {
+    width: 75%;
+  }
+
+  .Nav-tabs > * {
+    padding: 0.2rem 0.5rem;
+  }
+
+  .Nav-tabs > *:nth-last-of-type(n+2),
+  .Nav-tabs > *:nth-last-of-type(n+2) ~ * {
+    width: 50%;
+  }
+
+  .Nav-tabs > *:nth-last-of-type(n+3),
+  .Nav-tabs > *:nth-last-of-type(n+3) ~ * {
+    width: 33.33%;
+  }
+
+  .Nav-actions {
+    float: right;
+    max-width: 25%;
+  }
+
+  .Nav-actions > * {
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+.Nav-tabs {
+  float: left;
+}
+
+.Nav-actions {
+  float: right;
+}
+
+.ArtistsList {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.Artist {
+  margin-bottom: 1rem;
+  background: #ffffff;
+  -webkit-transition: box-shadow 250ms, -webkit-transform 250ms;
+  transition: box-shadow 250ms, -webkit-transform 250ms;
+  transition: transform 250ms, box-shadow 250ms;
+  transition: transform 250ms, box-shadow 250ms, -webkit-transform 250ms;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.Artist:hover {
+  box-shadow: 3px 3px 0px black;
+  -webkit-transform: translate(-3px, -3px);
+  -ms-transform: translate(-3px, -3px);
+  transform: translate(-3px, -3px);
+}
+
+.Artist-cover {
+  position: relative;
+  min-width: 75px;
+  width: 75px;
+  height: 72px;
+  border-right: 3px solid;
+  overflow: hidden;
+  background-size: cover;
+}
+
+.Artist-info {
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.Artist-name {
+  font-size: 1.3125rem;
+}
+
+.Artist-dates {
+  padding: 0 0.5rem;
+  font-style: italic;
+  font-size: 0.875rem;
+  color: #787878;
+}
+
+.Artist-details {
+  font-size: 0.875rem;
+  color: #787878;
+}
+
+.Artist-details > * {
+  padding-right: 0.5rem;
+}
+
+.Artist-actions {
+  padding-right: 1rem;
+  -webkit-transition: opacity 250ms;
+  transition: opacity 250ms;
+}

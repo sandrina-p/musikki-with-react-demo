@@ -1,0 +1,130 @@
+// -------- BUTTONS AND SIMILAR -------- //
+
+a, button {
+    &:focus {
+        animation-name: flash;
+        animation-duration: 250ms;
+        outline: 0;
+        border: 0;
+        box-shadow: 0;
+    }
+
+    &:disabled {
+        cursor: auto;
+    }
+}
+
+a, button {
+    &:focus a, //links inside
+    &:focus .fa, //links with font-awesome
+    &:focus .glyphicon /*links with bootstrap*/ {
+        animation-name: flash;
+        animation-duration: 250ms;
+    }
+}
+
+@keyframes flash {
+    50%   {color: transparent;}
+}
+
+button {
+    font-family: $font-sans;
+    font-size: $fontM;
+    background: none;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+
+    &:focus {
+        border: none;
+        opacity: 1;
+        animation-name: flash;
+        animation-duration: 250ms;
+    }
+}
+
+
+%BtnBasic {
+    display: block;
+    position: relative;
+    @include setBorder(all);
+    background: $clrWhite;
+    box-shadow: $borderW $borderW 0px $clrBlack;
+    transition: transform $speed, box-shadow $speed;
+    text-align: center;
+
+    &.active,
+    &:focus,
+    &:hover {
+        @include setBorder(all);
+        box-shadow: none;
+        transform: translate($borderW, $borderW);
+        background: $clrBlack;
+        color: $clrWhite;
+    }
+
+    &.active {
+        pointer-events: none;
+    }
+
+    &:not(:first-of-type) {
+        margin-left: -$borderW;
+    }
+}
+
+.BtnBasic {
+    &--lg {
+        @extend %BtnBasic;
+        padding: $safeArea/5 $safeArea*3;
+    }
+
+    &--md {
+        @extend %BtnBasic;
+        padding: $safeArea/5 $safeArea;
+    }
+}
+
+
+.BtnAct {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: background $speed;
+    padding: $safeArea/3;
+    opacity: 0;
+
+    .Artist:hover & {
+            opacity: 0.5;
+
+            &:hover {
+                opacity: 1;
+            }
+    }
+
+    &:hover {
+        background: $clrGray;
+
+        * {
+            fill: white;
+        }
+    }
+
+    &[data-fav="true"] {
+        background: $clrBlack;
+        opacity: 1;
+
+        * {
+            fill: white;
+        }
+    }
+}
+
+
+.Link {
+    color: $clrGray;
+
+    &:hover {
+        color: $clrBlack;
+        text-decoration:underline;
+    }
+}

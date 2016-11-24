@@ -1,0 +1,16 @@
+/*------------------------------------*\
+### TYPOGRAPHY   ###
+\*------------------------------------*/
+p, .p {
+    font-size: inherit;
+}
+
+a {
+    color: inherit;
+    font-size: inherit;
+    text-decoration: none;
+
+    &:focus {
+        outline: 0;
+    }
+}
