@@ -1,20 +1,12 @@
-class Sign extends React.Component {
+class SignForm extends React.Component {
     constructor() {
         super();
-
-        var self = this;
-    }
-
-    _handleForm(e) {
-        console.log('ew');
-        e.preventDefault();
-        this.props.onFormChange(this._username.value, this._username.value);
     }
 
     render() {
         return (
             <div className="Window-main--center">
-                <form className="Form" onSubmit={this._handleForm}>
+                <form className="Form" onSubmit={this._onSubmit.bind(this)}>
                     <div className="Form-body">
                         <p className="InputSide">
                             <input id="username" type="text" name="username" placeholder="qwerty" ref={(input) => this._username = input}/>
@@ -29,7 +21,7 @@ class Sign extends React.Component {
 
                     <div className="Form-footer">
                         <button type="submit" name="sign" className="BtnBasic--lg">{this.props.cta}</button>
-                        <Link to="/login" className="Link">{this.props.otherSign}</Link>
+                        <Link to={this.props.switchSignUrl} className="Link">{this.props.switchSignTxt}</Link>
                         <p className="Form-error">{this.props.errorMessage}</p>
                     </div>
                 </form>
@@ -37,9 +29,8 @@ class Sign extends React.Component {
         )
     }
 
-    // _onSubmit(e) {
-    //     e.preventDefault();
-    //     console.log('creew');
-    //     self.props.handleSubmit.bind(self);
-    // }
+    _onSubmit(e) {
+        e.preventDefault();
+        this.props.handleSubmit(this._username.value, this._password.value);
+    }
 }

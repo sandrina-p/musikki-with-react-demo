@@ -23,24 +23,24 @@ class Search extends React.Component {
             this.setState({artistsFound: loading });
 
 
-            Ajx.getJSON('GET', `https://music-api.musikki.com/v1/artists?q=[artist-name:${value}]&appkey=123456789&appid=123456789&limit=6`)
-                .then((response) => {
-                    // console.log(response);
-                    for(var i = 0, artist = {}, keyString = "", artists = response.results, artistsLength = artists.length; i < artistsLength; i++) {
-                        artist = {
-                            id: artists[i].mkid,
-                            name: artists[i].name,
-                            thumb: artists[i].image,
-                            dates: artists[i].dates ? [artists[i].dates.start.year, artists[i].dates.end] : null,
-                            genres: artists[i].genres
-                        }
-                        artistsFoundLoad.push(artist);
+            Ajx.getJSON('GET', `https://music-api.musikki.com/v1/artists?q=[artist-name:${value}]&appkey=123456789&appid=123456789&limit=7`)
+            .then((response) => {
+                // console.log(response);
+                for(var i = 0, artist = {}, keyString = "", artists = response.results, artistsLength = artists.length; i < artistsLength; i++) {
+                    artist = {
+                        id: artists[i].mkid,
+                        name: artists[i].name,
+                        thumb: artists[i].image,
+                        dates: artists[i].dates ? [artists[i].dates.start.year, artists[i].dates.end] : null,
+                        genres: artists[i].genres
                     }
-                    this.setState({artistsFound: artistsFoundLoad});
-                })
-                .catch(function (response) {
-                    console.error('Augh, there was an error!', response);
-                });
+                    artistsFoundLoad.push(artist);
+                }
+                this.setState({artistsFound: artistsFoundLoad});
+            })
+            .catch(function (response) {
+                console.error('Augh, there was an error!', response);
+            });
 
         } else {
             this.setState({artistsFound: null});

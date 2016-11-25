@@ -9,7 +9,7 @@ class Window extends React.Component {
                 ['https://github.com/sandrina-p/musikki-with-react-demo', 'github'],
                 ['https://musikki.com', 'Powered by Musikki']
             ],
-            windowClasses: 'Window '+this._MTouchEvents()
+            windowClasses: 'Window ' + this._MTouchEvents()
         };
     }
 

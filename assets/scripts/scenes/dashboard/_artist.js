@@ -18,18 +18,15 @@ class Artist extends React.Component {
             mkUsers = LS.get('mkUsers', true),
             mkUserThis = mkUsers[userLogged];
 
-            if (mkUserThis.favName != null && mkUserThis.favName.indexOf(this.props.id) > -1) {
-                console.log('yh its fav');
-                this.setState({isFav: true})
-            } else {
-                console.log('not fav');
-                this.setState({isFav: false})
-            }
+            mkUserThis.favName != null
+            && mkUserThis.favName.indexOf(this.props.id) > -1
+                ? this.setState({isFav: true})
+                : this.setState({isFav: false});
     }
 
 
     render() {
-        var genres = this._getGenres(),
+        let genres = this._getGenres(),
             thumbBg = {
                 backgroundImage : "url(" + this.props.thumb + ")"
             };
@@ -61,6 +58,62 @@ class Artist extends React.Component {
         )
     }
 
+    _updateIsFav() {
+        this._updateFavLS(!this.state.isFav);
+        this.setState({isFav: !this.state.isFav});
+    }
+
+    _updateFavLS(toggle) {
+        var userLogged = LS.get('userLogged'),
+            mkUsers = LS.get('mkUsers', true),
+            mkUserThis = mkUsers[userLogged];
+
+        switch (toggle) {
+            case true:
+
+                //if LS doesnt exist, create it
+                if (!mkUserThis.favName) {
+                    mkUserThis.favName = [],
+                    mkUserThis.favArr = []
+                }
+
+                //if artist is already fav don't add it again (it happens when refresh the page)
+                if (mkUserThis.favName.indexOf(this.props.id) < 0 ) {
+                    mkUserThis.favName.push(this.props.id);
+                    mkUserThis.favArr.push({
+                        id : this.props.id.toString(),
+                        name : this.props.name,
+                        thumb : this.props.thumb,
+                        type : this.props.type,
+                        dates : this.props.dates,
+                        genres : this.props.genres
+                    });
+                    console.log(this.props.name + ' added');
+                    break;
+                }
+
+            case false:
+                //remove it only if it exists on LS
+                if (mkUserThis.favName) {
+                    var favNameI = mkUserThis.favName.indexOf(this.props.id);
+                    if (favNameI > -1) {
+                        mkUserThis.favName.splice(favNameI, 1);
+                        mkUserThis.favArr.splice(favNameI, 1);
+                        console.log(this.props.name + ' removed');
+                    }
+                }
+                break;
+
+            default:
+                console.log('argument missing: add or remove');
+
+        }
+
+        //update LS mkUsers with new favorite
+        mkUsers[userLogged] = mkUserThis;
+        LS.set('mkUsers', mkUsers, true);
+    }
+
 
     _getGenres() {
         if (this.props.genres.length > 0) {
@@ -72,57 +125,6 @@ class Artist extends React.Component {
         } else {
             return <span><i>too cool to be defined</i></span>
         }
-    }
-
-    _updateIsFav() {
-        this._updateFavLS(!this.state.isFav);
-        this.setState({isFav: !this.state.isFav});
-    }
-
-    _updateFavLS(toggle) {
-        console.log('updateFavLS() '+toggle);
-        var userLogged = LS.get('userLogged'),
-            mkUsers = LS.get('mkUsers', true),
-            mkUserThis = mkUsers[userLogged];
-
-        switch (toggle) {
-            case true:
-
-                if (!mkUserThis.favName) {
-                    mkUserThis.favName = [],
-                    mkUserThis.favArr = []
-                }
-
-                if (mkUserThis.favName.indexOf(this.props.id) < 0 ) {
-                    mkUserThis.favName.push(this.props.id);
-                    mkUserThis.favArr.push({
-                        id : this.props.id.toString(),
-                        name : this.props.name,
-                        thumb : this.props.thumb,
-                        type : this.props.type,
-                        dates : this.props.dates,
-                        genres : this.props.genres
-                    });
-                    break;
-                }
-
-            case false:
-                if (mkUserThis.favName) {
-                    var favNameI = mkUserThis.favName.indexOf(this.props.id);
-                    if (favNameI > -1) {
-                        mkUserThis.favName.splice(favNameI, 1);
-                        mkUserThis.favArr.splice(favNameI, 1);
-                    }
-                }
-                break;
-
-            default:
-                console.log('argument missing: add or remove');
-
-        }
-
-        mkUsers[userLogged] = mkUserThis; //update mkUsers with new favorite
-        LS.set('mkUsers', mkUsers, true);
     }
 
 }
