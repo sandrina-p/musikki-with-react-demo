@@ -45,7 +45,7 @@ button {
 
 
 %BtnBasic {
-    display: block;
+    display: inline-block;
     position: relative;
     @include setBorder(all);
     background: $clrWhite;

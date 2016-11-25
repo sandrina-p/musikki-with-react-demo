@@ -109,6 +109,10 @@
     padding: $safeArea;
     text-align: center;
 
+    > * {
+        margin-bottom: $safeArea;
+    }
+
     @include media(phablet) {
         padding: $safeArea*4 $safeArea;
     }

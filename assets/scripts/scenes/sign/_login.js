@@ -2,6 +2,7 @@ class Login extends React.Component {
 
     constructor() {
         super();
+        this._handleSubmit = this._handleSubmit.bind(this);
 
         this.state = {
             errorMessage: ""
@@ -15,7 +16,7 @@ class Login extends React.Component {
                 switchSignTxt='Create account'
                 switchSignUrl='/register'
                 errorMessage={this.state.errorMessage}
-                handleSubmit={this._handleSubmit.bind(this)}
+                handleSubmit={this._handleSubmit}
                 userPlaceholder="qwerty"
                 passPlaceholder="123rty"
             />

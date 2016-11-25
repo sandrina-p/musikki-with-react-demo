@@ -4,11 +4,13 @@ class Register extends React.Component {
     constructor() {
         super();
 
-        this.mkUsers = LS.get('mkUsers', true) || {};
-
         this.state = {
             errorMessage: ""
         };
+
+        this.mkUsers = LS.get('mkUsers', true) || {};
+        this._handleSubmit = this._handleSubmit.bind(this);
+        
     }
 
     render() {
@@ -18,7 +20,7 @@ class Register extends React.Component {
                 switchSignTxt='Login'
                 switchSignUrl='/login'
                 errorMessage={this.state.errorMessage}
-                handleSubmit={this._handleSubmit.bind(this)}
+                handleSubmit={this._handleSubmit}
                 userPlaceholder="newQwerty"
                 passPlaceholder="que456"
             />

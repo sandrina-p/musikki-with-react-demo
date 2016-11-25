@@ -7,6 +7,8 @@ class Artist extends React.Component {
         this.state = {
             isFav : null
         }
+
+        this._updateIsFav = this._updateIsFav.bind(this);
     }
 
     componentWillMount() {
@@ -44,7 +46,7 @@ class Artist extends React.Component {
                     <p className="Artist-details">{genres}</p>
                 </div>
                 <div className="Artist-actions">
-                    <button className="BtnAct" data-fav={this.state.isFav} type="button" name="favorite" onClick={this._updateIsFav.bind(this)}>
+                    <button className="BtnAct" data-fav={this.state.isFav} type="button" name="favorite" onClick={this._updateIsFav}>
                         <svg className="BtnAct-check" width="25px" height="25px" viewBox="0 0 91 78">
                             <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                 <g transform="translate(-5.000000, 0.000000)" fill="#000000">
