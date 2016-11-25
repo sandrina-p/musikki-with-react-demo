@@ -7,6 +7,8 @@ This is my first project with React. It is a simple APP with a Login/Register an
 - Search Artists (with an Musikki-API)
 - Save Artists searched as Favorite
 - Favorites Artists keep saved when you switch between multiple accounts or refresh the page (LocalStorage)
+- The url hash (#/) updates on your navigation and allows "back history" thanks to React Routes
+- If you try to access /#dashboard without being logged you are redirect to /#login and vice-versa
 
 
 **Tools used:**
