@@ -4,7 +4,7 @@ This is my first project with React. It is a simple APP with a Login/Register an
 
 **Features:**
 - static Login / Register (saved on Local Storage)
-- Search Artists (with an Musikki-API)
+- Search Artists (with Musikki-API)
 - Save Artists searched as Favorite
 - Favorites Artists keep saved when you switch between multiple accounts or refresh the page (LocalStorage)
 - The url hash (#/) updates on your navigation and allows "back history" thanks to React Routes
@@ -12,10 +12,10 @@ This is my first project with React. It is a simple APP with a Login/Register an
 
 
 **Tools used:**
-- React, React Routes and Babel CDN links
+- CDN links : React, React Routes and Babel
 - Task Runner : gulp
 - css processor : SCSS
-- Music Search API : musikki-api - https://music-api.musikki.com
+- Music Search API : [musikki-api](https://music-api.musikki.com)
 
 
 **Next steps:**
