@@ -17,4 +17,5 @@ This is my first project with React. It is a simple APP with a Login/Register an
 
 
 **Next steps:**
-I will use this project as Base to learn more about React and other libraries that work with React like Flux/Redux and integrate it with Gulp.
+
+I will use this project as base to learn more about React and other libraries that work with React like Flux/Redux and integrate it with Gulp.
