@@ -9,12 +9,12 @@ class SignForm extends React.Component {
                 <form className="Form" onSubmit={this._onSubmit.bind(this)}>
                     <div className="Form-body">
                         <p className="InputSide">
-                            <input id="username" type="text" name="username" placeholder="qwerty" ref={(input) => this._username = input}/>
+                            <input id="username" type="text" name="username" placeholder={this.props.userPlaceholder} ref={(input) => this._username = input}/>
                             <label htmlFor="username">Username</label>
                         </p>
 
                         <p className="InputSide">
-                            <input id="password" type="pass" name="password" placeholder="123rty" ref={(input) => this._password = input}/>
+                            <input id="password" type="pass" name="password" placeholder={this.props.passPlaceholder} ref={(input) => this._password = input}/>
                             <label htmlFor="password">Password</label>
                         </p>
                     </div>

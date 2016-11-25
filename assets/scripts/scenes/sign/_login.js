@@ -16,6 +16,8 @@ class Login extends React.Component {
                 switchSignUrl='/register'
                 errorMessage={this.state.errorMessage}
                 handleSubmit={this._handleSubmit.bind(this)}
+                userPlaceholder="qwerty"
+                passPlaceholder="123rty"
             />
         )
     }

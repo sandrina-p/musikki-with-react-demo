@@ -19,6 +19,8 @@ class Register extends React.Component {
                 switchSignUrl='/login'
                 errorMessage={this.state.errorMessage}
                 handleSubmit={this._handleSubmit.bind(this)}
+                userPlaceholder="newQwerty"
+                passPlaceholder="que456"
             />
         )
     }
